@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /*border: 1px solid gray;*/
+}
+
+:root {
+    --corpadrao001: #0084ff;
+    --corpadrao002: #0038a1;
+}
+
+html {
+    height: 100dvh;
+    width: 100dvw;
+
+    background-color: black;
+    background-image: url(../img/fundo-login-001.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    height: 100%;
+    width: 30%;
+    min-width: 400px;
+    padding: 20px;
+
+    background-color: white;
+    box-shadow: 3px 0 20px rgba(0, 0, 0, 0.575);
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 15px;
+}
+
+div.container-form {
+    height: 50px;
+    padding: 10px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.205);
+
+    position: relative;
+}
+
+div.container-form label {
+    padding-right: 8px;
+    border-right: 1px solid rgb(189, 189, 189);
+    
+    color: var(--corpadrao001);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.295);
+}
+
+div.container-form input {
+    height: 100%;
+    width: 100%;
+    
+    background-color: transparent;
+    border: none;
+    
+    font-size: 1em;
+    color: rgb(78, 78, 78);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.144);
+    border-radius: 10px;
+
+    position: absolute;
+    left: 0;
+    padding-left: 50px;
+}
+
+div.container-form input:focus {
+    border: 1px solid var(--corpadrao001);
+}
+
+div.container-remember {
+    cursor: pointer;
+}
+
+div.container-remember input {
+    cursor: pointer;
+}
+
+div.container-remember label {
+    color: rgb(78, 78, 78);
+    cursor: pointer;
+}
+
+div.container-login-btn input {
+    width: 100%;
+    padding: 10px;
+
+    background-color: var(--corpadrao002);
+    color: white;
+    font-size: 1em;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.452);
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.562);
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+div.container-login-btn input:hover {
+    background-color: var(--corpadrao001);
+    transition: 0.4s;
+}
