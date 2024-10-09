@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=person,vpn_key" />
+</head>
+<body>
+    <!--CONTAINER PRINCIPAL-->
+    <main>
+
+        <!--TÍTULOS-->
+        <h1>Task Master</h1>
+        <p>Bem-vindo(a)! Acesse usando seu usuário e senha.</p>
+
+        <!--FORMULÁRIO-->
+        <form action="" method="post" autocomplete="on">
+
+            <!--USER-->
+            <div class="conainer-form">
+                <label for="iuser">
+                    <span class="material-symbols-outlined">
+                        person
+                    </span>
+                </label>
+                <input type="text" name="user" id="iuser" placeholder="Usuário" maxlength="15" minlength="6" required>
+            </div>
+
+            <!--PASSWORD-->
+            <div class="container-form">
+                <label for="ipassword">
+                    <span class="material-symbols-outlined">
+                        vpn_key
+                    </span>
+                </label>
+                <input type="password" name="password" id="ipassword" placeholder="Senha" maxlength="8" minlength="6" required>
+            </div>
+
+            <!--REMEMBER-->
+            <div class="container-remember">
+                <input type="checkbox" name="remember" id="iremember">
+                <label for="iremember">Lembrar de mim</label>
+            </div>
+
+            <!--LOGIN BUTTON-->
+            <div class="container-login-btn">
+                <input type="submit" name="entrar" id="ientrar" value="Acessar">
+            </div>
+        </form>
+        
+        <!--FORGOT MY PASSWORD / REGISTER-->
+        <aside>
+            <a href="#">Esqueci minha senha</a>
+            <a href="#">Cadastre-se</a>
+        </aside>
+    </main>
+</body>
+</html>

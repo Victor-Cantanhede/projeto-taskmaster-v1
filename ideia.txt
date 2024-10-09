@@ -1,0 +1,35 @@
+Ideia: TaskMaster - Dashboard de Produtividade
+Um painel interativo que permite aos usuários gerenciar suas tarefas diárias, acompanhar seu progresso e definir metas de produtividade.
+
+Funcionalidades:
+Autenticação de Usuário:
+
+Login e registro de usuários (mesmo que seja simulado).
+Gestão de Tarefas:
+
+Criar, editar, excluir e visualizar tarefas.
+Prioridade de tarefas (alta, média, baixa).
+Categorizar tarefas por projetos.
+Progresso de Tarefas:
+
+Marcar tarefas como "em andamento" ou "concluída".
+Barras de progresso ou gráficos mostrando o andamento das tarefas.
+Cronograma Semanal:
+
+Visualização semanal das tarefas agendadas, mostrando as metas diárias.
+Temas Customizáveis:
+
+Escolha de diferentes temas visuais (modo claro/escuro, variações de cores).
+Responsividade:
+
+Interface adaptada para diferentes tamanhos de tela (mobile, tablet, desktop).
+Interatividade:
+
+Animações suaves ao concluir tarefas ou ao mover entre seções.
+Notificações (pop-ups) ao atingir marcos ou prazos.
+Tecnologias sugeridas:
+HTML/CSS: Para estruturar e estilizar a página.
+JavaScript (ou React/Vue.js): Para a interação e lógica da aplicação.
+CSS Frameworks (Bootstrap ou Tailwind): Para facilitar o design responsivo.
+API LocalStorage ou Backend (Firebase): Para armazenar e gerenciar os dados de usuários e tarefas.
+Esse projeto vai demonstrar suas habilidades tanto em design como em lógica de programação, com foco em interatividade e experiência do usuário (UX).
