@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
+    <link rel="stylesheet" href="../styles/cadastro-login.css">
 </head>
 <body>
 
@@ -14,10 +15,233 @@
         <h1>Cadastro</h1>
         <p>Faça seu cadastro preenchendo o formulário abaixo:</p>
 
-        <!--FORMULÁRIO-->
-        <form action="" method="post" autocomplete="off">
+        <!--TIPO DE ACESSO-->
+        <div class="container-tipo-acesso">
+            <p>Qual perfil de acesso deseja cadastrar?</p>
+
+            <input type="radio" name="tipo-acesso" id="ipessoa-fisica">
+            <label for="ipessoa-fisica">Controle pessoal</label>
+
+            <input type="radio" name="tipo-acesso" id="ipessoa-juridica">
+            <label for="ipessoa-juridica">Controle empresarial</label>
+        </div>
+
+        <!--FORMULÁRIO PESSOA FÍSICA-->
+        <form action="" method="post" autocomplete="off" id="form-pessoa-fisica">
+
+            <!--CPF-->
+            <label for="icpf">CPF</label>
+            <input type="text" name="cpf" id="icpf" minlength="11" maxlength="11" placeholder="Digite seu CPF" required>
+
+            <!--NOME COMPLETO-->
+            <label for="inome-completo">Nome completo</label>
+            <input type="text" name="nome-completo" id="inome-completo" placeholder="Digite seu nome completo" required>
+
+            <!--LOCAL-->
+            <label for="icidadeEstado">Cidade e estado</label>
+            <select name="local" id="ilocal">
+                <option value="" disabled selected>Sua localidade</option>
+                <optgroup label="Acre">
+                    <option value="rio-branco">Rio Branco - AC</option>
+                    <option value="cruzeiro-do-sul">Cruzeiro do Sul - AC</option>
+                    <option value="senador-george-jardim">Senador Georgie Jardim - AC</option>
+                    <option value="brasiléia">Brasiléia - AC</option>
+                    <option value="plácido-de-castro">Plácido de Castro - AC</option>
+                    <option value="porto-walter">Porto Walter - AC</option>
+                    <option value="assis-brasil">Assis Brasil - AC</option>
+                    <option value="cobija">Cobija - AC</option>
+                </optgroup>
             
+                <optgroup label="Alagoas">
+                    <option value="maceio">Maceió - AL</option>
+                    <option value="aracaju">Arapiraca - AL</option>
+                    <option value="palmeira-dos-indios">Palmeira dos Índios - AL</option>
+                    <option value="arapiraca">Arapiraca - AL</option>
+                    <option value="rio-largo">Rio Largo - AL</option>
+                    <option value="penedo">Penedo - AL</option>
+                    <option value="delmiro-gouveia">Delmiro Gouveia - AL</option>
+                </optgroup>
+            
+                <optgroup label="Amapá">
+                    <option value="macapa">Macapá - AP</option>
+                    <option value="santana">Santana - AP</option>
+                    <option value="loreto">Loreto - AP</option>
+                    <option value="port-velho">Port Velho - AP</option>
+                    <option value="ferreira-gomes">Ferreira Gomes - AP</option>
+                    <option value="brasileia">Brasileia - AP</option>
+                </optgroup>
+            
+                <optgroup label="Amazonas">
+                    <option value="manaus">Manaus - AM</option>
+                    <option value="parintins">Parintins - AM</option>
+                    <option value="itacoatiara">Itacoatiara - AM</option>
+                    <option value="manacapuru">Manacapuru - AM</option>
+                    <option value="coari">Coari - AM</option>
+                    <option value="tabatinga">Tabatinga - AM</option>
+                </optgroup>
+            
+                <optgroup label="Bahia">
+                    <option value="salvador">Salvador - BA</option>
+                    <option value="feira-de-santana">Feira de Santana - BA</option>
+                    <option value="vitória-da-conquista">Vitória da Conquista - BA</option>
+                    <option value="camaçari">Camaçari - BA</option>
+                    <option value="ilheus">Ilhéus - BA</option>
+                    <option value="itabuna">Itabuna - BA</option>
+                    <option value="juazeiro">Juazeiro - BA</option>
+                </optgroup>
+            
+                <optgroup label="Ceará">
+                    <option value="fortaleza">Fortaleza - CE</option>
+                    <option value="caucaia">Caucaia - CE</option>
+                    <option value="maracanaú">Maracanaú - CE</option>
+                    <option value="sobral">Sobral - CE</option>
+                    <option value="crato">Crato - CE</option>
+                    <option value="juazeiro-do-norte">Juazeiro do Norte - CE</option>
+                </optgroup>
+            
+                <optgroup label="Distrito Federal">
+                    <option value="brasilia">Brasília - DF</option>
+                    <option value="taguatinga">Taguatinga - DF</option>
+                    <option value="ceilandia">Ceilândia - DF</option>
+                    <option value="planaltina">Planaltina - DF</option>
+                    <option value="samarco">Samarco - DF</option>
+                </optgroup>
+            
+                <optgroup label="Espírito Santo">
+                    <option value="vitoria">Vitória - ES</option>
+                    <option value="vila-velha">Vila Velha - ES</option>
+                    <option value="serra">Serra - ES</option>
+                    <option value="cariacica">Cariacica - ES</option>
+                    <option value="guarapari">Guarapari - ES</option>
+                </optgroup>
+            
+                <optgroup label="Goiás">
+                    <option value="goiania">Goiânia - GO</option>
+                    <option value="aparecida-de-goiania">Aparecida de Goiânia - GO</option>
+                    <option value="anjical">Anápolis - GO</option>
+                    <option value="goianesia">Goianésia - GO</option>
+                    <option value="catalão">Catalão - GO</option>
+                </optgroup>
+            
+                <optgroup label="Maranhão">
+                    <option value="sao-luis">São Luís - MA</option>
+                    <option value="imperatriz">Imperatriz - MA</option>
+                    <option value="caxias">Caxias - MA</option>
+                    <option value="timon">Timon - MA</option>
+                </optgroup>
+            
+                <optgroup label="Mato Grosso">
+                    <option value="cuiaba">Cuiabá - MT</option>
+                    <option value="várzea-grande">Várzea Grande - MT</option>
+                    <option value="rondonopolis">Rondonópolis - MT</option>
+                    <option value="sinop">Sinop - MT</option>
+                </optgroup>
+            
+                <optgroup label="Mato Grosso do Sul">
+                    <option value="campo-grande">Campo Grande - MS</option>
+                    <option value="dourados">Dourados - MS</option>
+                    <option value="três-lagoas">Três Lagoas - MS</option>
+                </optgroup>
+            
+                <optgroup label="Minas Gerais">
+                    <option value="belo-horizonte">Belo Horizonte - MG</option>
+                    <option value="uberlandia">Uberlândia - MG</option>
+                    <option value="contagem">Contagem - MG</option>
+                    <option value="juiz-de-fora">Juiz de Fora - MG</option>
+                </optgroup>
+            
+                <optgroup label="Pará">
+                    <option value="belem">Belém - PA</option>
+                    <option value="anajás">Ananindeua - PA</option>
+                    <option value="maraba">Marabá - PA</option>
+                    <option value="parauapebas">Parauapebas - PA</option>
+                </optgroup>
+            
+                <optgroup label="Paraíba">
+                    <option value="joao-pessoa">João Pessoa - PB</option>
+                    <option value="campina-grande">Campina Grande - PB</option>
+                    <option value="patos">Patos - PB</option>
+                </optgroup>
+            
+                <optgroup label="Paraná">
+                    <option value="curitiba">Curitiba - PR</option>
+                    <option value="cascavel">Cascavel - PR</option>
+                    <option value="maringá">Maringá - PR</option>
+                </optgroup>
+            
+                <optgroup label="Pernambuco">
+                    <option value="recife">Recife - PE</option>
+                    <option value="olinda">Olinda - PE</option>
+                    <option value="caruaru">Caruaru - PE</option>
+                </optgroup>
+            
+                <optgroup label="Piauí">
+                    <option value="teresina">Teresina - PI</option>
+                    <option value="parnaiba">Parnaíba - PI</option>
+                </optgroup>
+            
+                <optgroup label="Rio de Janeiro">
+                    <option value="rio-de-janeiro">Rio de Janeiro - RJ</option>
+                    <option value="niteroi">Niterói - RJ</option>
+                    <option value="duque-de-caxias">Duque de Caxias - RJ</option>
+                </optgroup>
+            
+                <optgroup label="Rio Grande do Norte">
+                    <option value="natal">Natal - RN</option>
+                    <option value="mossoró">Mossoró - RN</option>
+                </optgroup>
+            
+                <optgroup label="Rio Grande do Sul">
+                    <option value="porto-alegre">Porto Alegre - RS</option>
+                    <option value="caxias-do-sul">Caxias do Sul - RS</option>
+                </optgroup>
+            
+                <optgroup label="Rondônia">
+                    <option value="porto-velho">Porto Velho - RO</option>
+                    <option value="ji-paraná">Ji-Paraná - RO</option>
+                </optgroup>
+            
+                <optgroup label="Roraima">
+                    <option value="boa-vista">Boa Vista - RR</option>
+                </optgroup>
+            
+                <optgroup label="São Paulo">
+                    <option value="sao-paulo">São Paulo - SP</option>
+                    <option value="guarulhos">Guarulhos - SP</option>
+                    <option value="campinas">Campinas - SP</option>
+                    <option value="são-bernardo-do-campo">São Bernardo do Campo - SP</option>
+                </optgroup>
+            
+                <optgroup label="Sergipe">
+                    <option value="aracaju">Aracaju - SE</option>
+                    <option value="lagarto">Lagarto - SE</option>
+                </optgroup>
+            
+                <optgroup label="Tocantins">
+                    <option value="palmas">Palmas - TO</option>
+                </optgroup>
+            </select>
+
+            <!--TELEFONE-->
+            <label for="itelefone">Telefone</label>
+            <input type="tel" name="telefone" id="itelefone" pattern="[0-9]*" minlength="10" maxlength="11" placeholder="Digite seu telefone com DDD" required>
+
+            <!--E-MAIL-->
+            <label for="iemail">E-mail</label>
+            <input type="email" name="email" id="iemail" placeholder="Digite seu E-mail" required>
+
+            <!--FINALIZAR CADASTRO-->
+            <input type="submit" name="finalizar-cadastro-pf" id="ifinalizar-cadastro-pf" value="Finalizar cadastro">
+            <input type="reset" name="limpar" id="ilimpar" value="Limpar">
+        </form>
+
+        <!--FORMULÁRIO PESSOA JURÍDICA-->
+        <form action="" method="post" autocomplete="off" id="form-pessoa-juridica">
+            <p>Este perfil não está disponível no momento.</p>
         </form>
     </main>
+
+    <!--SCRIPTS-->
+    <script src="../scripts/cadastro-login.js"></script>
 </body>
 </html>

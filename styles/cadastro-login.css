@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /*border: 1px solid gray;*/
+}
+
+:root {
+    --corpadrao001: #0084ff;
+    --corpadrao002: #0038a1;
+}
+
+html {
+    height: 100dvh;
+    width: 100dvw;
+
+    background-color: black;
+    background-image: url(../img/fundo-login-001.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    margin: auto;
+
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.575);
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+main h1, p {
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.226);
+}
