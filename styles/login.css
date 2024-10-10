@@ -32,8 +32,8 @@ body {
 
 main {
     height: 100%;
-    width: 30%;
-    min-width: 400px;
+    width: 100%;
+    max-width: 420px;
     padding: 20px;
 
     background-color: white;
@@ -44,6 +44,12 @@ main {
     justify-content: center;
     align-items: center;
     gap: 20px;
+}
+
+@media screen and (max-width: 830px) {
+    main {
+        margin: auto;
+    }
 }
 
 form {
@@ -130,4 +136,43 @@ div.container-login-btn input {
 div.container-login-btn input:hover {
     background-color: var(--corpadrao001);
     transition: 0.4s;
+}
+
+aside {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 830px) {
+    aside {
+        flex-flow: column;
+        gap: 15px;
+    }
+}
+
+aside a {
+    font-size: 1em;
+    color: var(--corpadrao002);
+    text-decoration: none;
+}
+
+a#iesqueci:hover {
+    text-decoration: underline;
+}
+
+a#icadastre {
+    padding: 5px;
+    border: 1px solid var(--corpadrao002);
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.288);
+    transition: 0.4s;
+}
+
+a#icadastre:hover {
+    color: white;
+    background-color: var(--corpadrao001);
+    border: 1px solid transparent;
 }
