@@ -14,9 +14,15 @@
     --corpadrao002: #0038a1;
 }
 
-html {
-    height: 100dvh;
-    width: 100dvw;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    display: block
 
     background-color: black;
     background-image: url(../img/fundo-login-001.png);
@@ -25,16 +31,11 @@ html {
     background-position: center center;
 }
 
-body {
-    height: 100%;
-    width: 100%;
-}
-
 main {
-    height: 100%;
+    min-height: 100%;
     width: 100%;
     max-width: 800px;
-    padding: 20px;
+    padding: 30px;
     margin: auto;
 
     background-color: white;
@@ -42,11 +43,167 @@ main {
 
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 20px;
 }
 
-main h1, p {
+main h1 {
+    height: 80px;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    z-index: 19999;
+
+    background-color: var(--corpadrao002);
+    color: white;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.452);
+    text-align: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.562);
+
+    position: absolute;
+    top: 0;
+}
+
+#generic-text-001 {
+    padding-top: 70px;
+    text-align: center;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.226);
+}
+
+div.container-tipo-acesso {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 170px;
+}
+
+@media screen and (max-width: 650px) {
+    div.container-tipo-acesso {
+        gap: 20px;
+    }
+}
+
+div.container-tipo-acesso > input {
+    display: none;
+}
+
+/*Esta label está ocultando o input radio, porém o radio ainda será acionado e enviado pelo form*/
+div.container-tipo-acesso label {
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+
+    background-color: white;
+    color: var(--corpadrao002);
+    border: 1px solid var(--corpadrao002);
+    text-shadow: none;
+    transition: 0.4s;
+
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.562);
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+div.container-tipo-acesso label:hover {
+    background-color: var(--corpadrao002);
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.452);
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.562);
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+#label-perfil-pessoal-enabled, #label-perfil-empresarial-enabled {
+    /*intaração via java script*/
+    background-color: var(--corpadrao001);
+    color: white;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.452);
+    border: none;
+}
+
+#label-perfil-pessoal-enabled:hover, #label-perfil-empresarial-enabled:hover {
+    /*intaração via java script*/
+    background-color: var(--corpadrao002);
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.452);
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.562);
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+form#form-pessoa-fisica {
+    width: 100%;
+    display: flex; /*intaração via java script*/
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+
+form#form-pessoa-juridica {
+    display: none; /*intaração via java script*/
+}
+
+div.container-generic-form {
+    height: 50px;
+    width: 100%;
+    max-width: 375px;
+    padding: 10px;
+
+    display: flex;
+    flex-flow: column nowrap;
+
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.205);
+
+    position: relative;
+}
+
+div.container-generic-form label {
+    position: absolute;
+    bottom: 100%;
+    transform: translate(0, 50%);
+    z-index: 9999;
+
+    padding: 2px;
+
+    color: var(--corpadrao002);
+    background-color: white;
+    font-size: 0.9em;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+div.container-generic-form input, div.container-generic-form select {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    
+    background-color: transparent;
+    
+    font-size: 1em;
+    color: rgb(78, 78, 78);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.144);
+    border-radius: 10px;
+    border: none;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+div.container-generic-form input:focus, div.container-generic-form select:focus {
+    border: 1px solid var(--corpadrao001);
 }

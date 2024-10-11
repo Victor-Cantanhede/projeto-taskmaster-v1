@@ -6,7 +6,12 @@
 const cpf = document.getElementById('icpf');
 const nomeCompleto = document.getElementById('inome-completo');
 const telefone = document.getElementById('itelefone');
-const formValidate = document.getElementById('form-pessoa-fisica');
+
+const formValidatePF = document.getElementById('form-pessoa-fisica');
+const formValidatePJ = document.getElementById('form-pessoa-juridica');
+
+const btnPessoal = document.getElementById('label-perfil-pessoal');
+const btnEmpresarial = document.getElementById('label-perfil-empresarial');
 
 // BLOQUEANDO CARACTERES NÃO NUMÉRICOS
 cpf.addEventListener('input', function (event) {
@@ -18,7 +23,7 @@ telefone.addEventListener('input', function (event) {
 });
 
 // LIMITANDO QUANTIDADE DE CARACTERES
-formValidate.addEventListener('submit', function (event) {
+formValidatePF.addEventListener('submit', function (event) {
     if (formCpf.value.length !== 11) {
         event.preventDefault();
         formCpf.value = '';
@@ -36,10 +41,31 @@ function removeSpaces(text) {
     return text.replace(/\s+/g, ' ').trim();
 }
 
-formValidate.addEventListener('submit', function() {
+formValidatePF.addEventListener('submit', function() {
     nomeCompleto.value = removeSpaces(nomeCompleto.value);
 });
 
 //////////////////////////////////////////////////////////////////////
 
 /*SCRIPT PARA VALIDAÇÃO DE CADASTRO PESSOA JURÍDICA*/
+
+//////////////////////////////////////////////////////////////////////
+
+/*SCRIPT PARA INTERAÇÃO DO BOTÃO PERFIL PESSOAL/EMPRESARIAL*/
+
+// FUNÇÃO PARA "ATIVAR" O BOTÃO E OCULTAR O QUE NÃO FOI SELECIONADO
+function btnPerfilPessoal() {
+    btnPessoal.id = 'label-perfil-pessoal-enabled';
+    btnEmpresarial.id = 'label-perfil-empresarial';
+    formValidatePF.style.display = 'flex';
+    formValidatePJ.style.display = 'none';
+}
+
+function btnPerfilEmpresarial() {
+    btnEmpresarial.id = 'label-perfil-empresarial-enabled';
+    btnPessoal.id = 'label-perfil-pessoal';
+    formValidatePJ.style.display = 'flex';
+    formValidatePF.style.display = 'none';
+}
+
+//////////////////////////////////////////////////////////////////////
