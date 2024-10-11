@@ -53,7 +53,7 @@ formValidatePF.addEventListener('submit', function() {
 
 /*SCRIPT PARA INTERAÇÃO DO BOTÃO PERFIL PESSOAL/EMPRESARIAL*/
 
-// FUNÇÃO PARA "ATIVAR" O BOTÃO E OCULTAR O QUE NÃO FOI SELECIONADO
+// FUNÇÃO PARA "ATIVAR" O BOTÃO DE ESCOLHER PERFIL E OCULTAR O QUE NÃO FOI SELECIONADO
 function btnPerfilPessoal() {
     btnPessoal.id = 'label-perfil-pessoal-enabled';
     btnEmpresarial.id = 'label-perfil-empresarial';
