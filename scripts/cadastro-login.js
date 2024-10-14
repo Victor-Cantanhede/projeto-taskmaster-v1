@@ -34,6 +34,9 @@ nomeCompleto.addEventListener('input', function() {
     this.value = this.value.toUpperCase().replace(/[0-9]/g, '');
 });
 
+// MOSTRANDO A FORÇA DA SENHA NA TELA DO USUÁRIO
+
+
 // VALIDANDO DADOS PARA ENVIO DO FORMULÁRIO
 formValidatePF.addEventListener('submit', function(event) {
 
@@ -114,8 +117,71 @@ formValidatePF.addEventListener('submit', function(event) {
 
     // REGRAS PARA CRIAÇÃO DA SENHA
     /*
-    
+    >> Não pode ser igual ao nome de usuário
+    >> Deve conter no mínimo 10 caracteres e no máximo 20 caracteres
+    >> Deve conter ao menos 1 letra maiúscula e ao menos 1 letra minúscula
+    >> Deve conter ao menos 1 número
+
+    >> Senha igual ao nome de usuário é considerada FRACA
+    >> Senha com menos de 10 caracteres é considerada FRACA
+    >> Senha com mais de 1 número é considerada MÉDIA
+    >> Senha com mais de 1 número e com caracteres especiais é considerada FORTE
     */
+
+    // VERIFICANDO QUANTIDADE DE CARACTERES
+    if (campoSenhaPF.value.length >= 10 && campoSenhaPF.value.length <= 20) {
+        console.log('Senha: Quantidade de caracteres ok!');
+
+        // VERIFICANDO SE A SENHA POSSUI ALGUMA LETRA MAIÚSCULA E MINÚSCULA
+        const senhaPossuiMinuscula = /[a-z]/.test(campoSenhaPF.value);
+        const senhaPossuiMaiuscula = /[A-Z]/.test(campoSenhaPF.value);
+        
+        if (senhaPossuiMinuscula && senhaPossuiMaiuscula) {
+            console.log('Senha: Possui letras minúsculas e maiúsculas ok!');
+
+            // VERIFICANDO SE A SENHA POSSUI ALGUM NÚMERO
+            const senhaPossuiNumero = /[0-9]/.test(campoSenhaPF.value);
+
+            if (senhaPossuiNumero) {
+                console.log('Senha: Possui números ok!');
+
+                // VERIFICANDO SE A SENHA É IGUAL AO NOME DE USUÁRIO
+                if (campoSenhaPF.value != campoUsuarioPF.value) {
+                    console.log('Senha: Validação de parâmetros sendo finalizada!');
+
+                    // FIM DA VERIFICAÇÃO DA SENHA
+
+                } else {
+                    event.preventDefault();
+                    campoSenhaPF.value = '';
+                    campoConfirmSenhaPF.value = '';
+                    console.log('ERRO: A senha não pode ser igual ao nome de usuário!');
+                    window.alert('ERRO: A senha não pode ser igual ao nome de usuário!');
+                }
+
+            } else {
+                event.preventDefault();
+                campoSenhaPF.value = '';
+                campoConfirmSenhaPF.value = '';
+                console.log('ERRO: A senha não possui números!');
+                window.alert('ERRO: A senha deve possuir pelo menos um número!');
+            }
+
+        } else {
+            event.preventDefault();
+            campoSenhaPF.value = '';
+            campoConfirmSenhaPF.value = '';
+            console.log('ERRO: A senha deve possuir pelo menos uma letra minúscula e maiúscula!');
+            window.alert('ERRO: A senha deve possuir pelo menos uma letra minúscula e maiúscula!');
+        }
+
+    } else {
+        event.preventDefault();
+        campoSenhaPF.value = '';
+        campoConfirmSenhaPF.value = '';
+        console.log('ERRO: Quantidade de caracteres da senha inválida!');
+        window.alert('ERRO: A senha deve possuir de 10 a 20 caracteres!');
+    }
 });
 
 
