@@ -146,7 +146,7 @@ div.container-tipo-acesso label:hover {
 
 form#form-pessoa-fisica {
     width: 100%;
-    display: flex; /*intaração via java script*/
+    display: none; /*intaração via java script*/
     flex-flow: column nowrap;
     gap: 20px;
 }
