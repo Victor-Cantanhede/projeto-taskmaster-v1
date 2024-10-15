@@ -208,13 +208,13 @@ div.container-generic-form input:focus, div.container-generic-form select:focus 
     border: 1px solid var(--corpadrao001);
 }
 
-div.container-password-level {
+div#container-password-level {
     height: 10px;
     width: 100%;
     max-width: 368px;
     padding: 2px;
 
-    display: flex;
+    display: none; /*Interação via JavaScript*/
     flex-flow: row nowrap;
     align-items: center;
 
@@ -225,15 +225,16 @@ div.container-password-level {
 
 div#rowbar-password-level {
     height: 6px;
-    width: 1%;
+    width: 1%; /*Interação via JavaScript*/
 
     border-radius: 10px;
-    background-color: rgba(255, 0, 0, 0.877);
+    background-color: rgba(255, 0, 0, 0.877); /*Interação via JavaScript*/
     transition: 0.4s;
 }
 
 div#nivel-senha-span {
     position: relative;
+    display: none; /*Interação via JavaScript*/
 }
 
 span#nivel-senha-span-text {
@@ -247,7 +248,7 @@ span#nivel-senha-span-text {
 
 span#nivel-senha-real {
     font-weight: bold;
-    color: red;
+    color: red; /*Interação via JavaScript*/
 }
 
 div.container-btn-finalizar-cadastro {

@@ -15,6 +15,13 @@ const campoUsuarioPF = document.getElementById('iuser');
 const campoSenhaPF = document.getElementById('ipassword');
 const campoConfirmSenhaPF = document.getElementById('ipassword002');
 
+const campoForcaDaSenha = document.getElementById('container-password-level');
+const barraForcaDaSenha = document.getElementById('rowbar-password-level');
+const campoNivelDaSenha = document.getElementById('nivel-senha-span');
+const nivelDaSenhaReal = document.getElementById('nivel-senha-real');
+
+let forcaDaSenha = 'FRACA';
+
 //////////////////////////////////////////////////////////////////////
 
 /*SCRIPT PARA VALIDAÇÃO DE CADASTRO PESSOA FÍSICA*/
@@ -35,7 +42,59 @@ nomeCompleto.addEventListener('input', function() {
 });
 
 // MOSTRANDO A FORÇA DA SENHA NA TELA DO USUÁRIO
+/*
+>> Senha igual ao nome de usuário é considerada FRACA
+>> Senha com menos de 10 caracteres é considerada FRACA
+>> Senha com 1 número ou mais é considerada MÉDIA
+>> Senha com 11 caracteres ou mais, pelo menos 1 número e com caracteres especiais é considerada FORTE
+*/
+campoSenhaPF.addEventListener('input', function() {
 
+    // VARIÁVEIS PARA IDENTIFICAR SE A SENHA POSSUI NÚMEROS E CARACTERES ESPECIAIS
+    const umNumeroOuMais = this.value.match(/[0-9]/g);
+    const umCaracterEspecial = this.value.match(/[^a-zA-Z0-9]/g);
+
+    if (this.value != '') {
+        campoForcaDaSenha.style.display = 'flex';
+        campoNivelDaSenha.style.display = 'flex';
+
+    } else {
+        campoForcaDaSenha.style.display = 'none';
+        campoNivelDaSenha.style.display = 'none';
+    }
+
+    if (this.value == campoUsuarioPF.value) {
+        forcaDaSenha = 'FRACA';
+        barraForcaDaSenha.style.width = '5%';
+        barraForcaDaSenha.style.backgroundColor = 'rgba(255, 0, 0, 0.877)';
+        nivelDaSenhaReal.style.color = 'red';
+        nivelDaSenhaReal.innerHTML = forcaDaSenha;
+
+    } else if (this.value.length < 10) {
+        forcaDaSenha = 'FRACA';
+        barraForcaDaSenha.style.width = '3%';
+        barraForcaDaSenha.style.backgroundColor = 'rgba(255, 0, 0, 0.877)';
+        nivelDaSenhaReal.style.color = 'red';
+        nivelDaSenhaReal.innerHTML = forcaDaSenha;
+
+    } else if (umNumeroOuMais && umNumeroOuMais.length >= 1 && !umCaracterEspecial) {
+        forcaDaSenha = 'MÉDIA';
+        barraForcaDaSenha.style.width = '60%';
+        barraForcaDaSenha.style.backgroundColor = 'rgba(255, 217, 0, 0.877)';
+        nivelDaSenhaReal.style.color = 'rgba(255, 217, 0)';
+        nivelDaSenhaReal.innerHTML = forcaDaSenha;
+
+    } else if (this.value.length >= 11 && umNumeroOuMais && umNumeroOuMais.length >= 1 && umCaracterEspecial && umCaracterEspecial.length >= 1) {        
+        forcaDaSenha = 'FORTE';
+        barraForcaDaSenha.style.width = '95%';
+        barraForcaDaSenha.style.backgroundColor = 'rgba(0, 255, 42, 0.877)';
+        nivelDaSenhaReal.style.color = 'rgba(0, 255, 42)';
+        nivelDaSenhaReal.innerHTML = forcaDaSenha;
+
+    } else {
+        console.log('A senha atende à todos os parâmetros!');
+    }
+});
 
 // VALIDANDO DADOS PARA ENVIO DO FORMULÁRIO
 formValidatePF.addEventListener('submit', function(event) {
@@ -121,11 +180,6 @@ formValidatePF.addEventListener('submit', function(event) {
     >> Deve conter no mínimo 10 caracteres e no máximo 20 caracteres
     >> Deve conter ao menos 1 letra maiúscula e ao menos 1 letra minúscula
     >> Deve conter ao menos 1 número
-
-    >> Senha igual ao nome de usuário é considerada FRACA
-    >> Senha com menos de 10 caracteres é considerada FRACA
-    >> Senha com mais de 1 número é considerada MÉDIA
-    >> Senha com mais de 1 número e com caracteres especiais é considerada FORTE
     */
 
     // VERIFICANDO QUANTIDADE DE CARACTERES
