@@ -4,12 +4,8 @@
 const cpf = document.getElementById('icpf');
 const nomeCompleto = document.getElementById('inome-completo');
 const telefone = document.getElementById('itelefone');
-
-const formValidatePF = document.getElementById('form-pessoa-fisica');
-const formValidatePJ = document.getElementById('form-pessoa-juridica');
-
-const btnPessoal = document.getElementById('label-perfil-pessoal');
-const btnEmpresarial = document.getElementById('label-perfil-empresarial');
+const local = document.getElementById('ilocal');
+const email = document.getElementById('iemail');
 
 const campoUsuarioPF = document.getElementById('iuser');
 const campoSenhaPF = document.getElementById('ipassword');
@@ -20,12 +16,37 @@ const barraForcaDaSenha = document.getElementById('rowbar-password-level');
 const campoNivelDaSenha = document.getElementById('nivel-senha-span');
 const nivelDaSenhaReal = document.getElementById('nivel-senha-real');
 
+const formValidatePF = document.getElementById('form-pessoa-fisica');
+const formValidatePJ = document.getElementById('form-pessoa-juridica');
+
+const btnPessoal = document.getElementById('label-perfil-pessoal');
+const btnEmpresarial = document.getElementById('label-perfil-empresarial');
+
+
 let forcaDaSenha = 'FRACA';
 
 //////////////////////////////////////////////////////////////////////
 
-/*SCRIPT PARA VALIDAÇÃO DE CADASTRO PESSOA FÍSICA*/
+/*SCRIPT PARA INTERAÇÃO DO BOTÃO PERFIL PESSOAL/EMPRESARIAL*/
 
+// FUNÇÃO PARA "ATIVAR" O BOTÃO DE ESCOLHER PERFIL E OCULTAR O QUE NÃO FOI SELECIONADO
+function btnPerfilPessoal() {
+    btnPessoal.id = 'label-perfil-pessoal-enabled';
+    btnEmpresarial.id = 'label-perfil-empresarial';
+    formValidatePF.style.display = 'flex';
+    formValidatePJ.style.display = 'none';
+}
+
+function btnPerfilEmpresarial() {
+    btnEmpresarial.id = 'label-perfil-empresarial-enabled';
+    btnPessoal.id = 'label-perfil-pessoal';
+    formValidatePJ.style.display = 'flex';
+    formValidatePF.style.display = 'none';
+}
+
+//////////////////////////////////////////////////////////////////////
+
+/*SCRIPT PARA VALIDAÇÃO DE CADASTRO PESSOA FÍSICA*/
 
 // BLOQUEANDO CARACTERES NÃO NUMÉRICOS NO CAMPO CPF E TELEFONE
 cpf.addEventListener('input', function() {
@@ -236,31 +257,42 @@ formValidatePF.addEventListener('submit', function(event) {
         console.log('ERRO: Quantidade de caracteres da senha inválida!');
         window.alert('ERRO: A senha deve possuir de 10 a 20 caracteres!');
     }
+
+    // VERIFICANDO SE O CAMPO CONFIRMAÇÃO DE SENHA CORRESPONDE A PRIMEIRA SENHA CADASTRADA
+    if (campoConfirmSenhaPF.value == campoSenhaPF.value) {
+        console.log('Confirmação de senha: Validada com sucesso!');
+
+    } else {
+        event.preventDefault();
+        campoConfirmSenhaPF.value = '';
+        console.log('ERRO: Confirmação de senha inválida!');
+        window.alert('ERRO: Confirmação de senha inválida!');
+    }
 });
 
+// FUNÇÃO PARA LIMPAR DADOS DO FORMULÁRIO PF
+function limparFormPF() {
+    cpf.value = '';
+    nomeCompleto.value = '';
+    telefone.value = '';
+    local.value = '';
+    email.value = '';
+    campoUsuarioPF.value = '';
+    campoSenhaPF.value = '';
+    campoConfirmSenhaPF.value = '';
 
+    forcaDaSenha = 'FRACA';
+    barraForcaDaSenha.style.width = '3%';
+    barraForcaDaSenha.style.backgroundColor = 'rgba(255, 0, 0, 0.877)';
+    nivelDaSenhaReal.style.color = 'red';
+    nivelDaSenhaReal.innerHTML = forcaDaSenha;
+
+    campoForcaDaSenha.style.display = 'none';
+    campoNivelDaSenha.style.display = 'none';
+}
 
 //////////////////////////////////////////////////////////////////////
 
 /*SCRIPT PARA VALIDAÇÃO DE CADASTRO PESSOA JURÍDICA*/
-
-//////////////////////////////////////////////////////////////////////
-
-/*SCRIPT PARA INTERAÇÃO DO BOTÃO PERFIL PESSOAL/EMPRESARIAL*/
-
-// FUNÇÃO PARA "ATIVAR" O BOTÃO DE ESCOLHER PERFIL E OCULTAR O QUE NÃO FOI SELECIONADO
-function btnPerfilPessoal() {
-    btnPessoal.id = 'label-perfil-pessoal-enabled';
-    btnEmpresarial.id = 'label-perfil-empresarial';
-    formValidatePF.style.display = 'flex';
-    formValidatePJ.style.display = 'none';
-}
-
-function btnPerfilEmpresarial() {
-    btnEmpresarial.id = 'label-perfil-empresarial-enabled';
-    btnPessoal.id = 'label-perfil-pessoal';
-    formValidatePJ.style.display = 'flex';
-    formValidatePF.style.display = 'none';
-}
 
 //////////////////////////////////////////////////////////////////////
