@@ -10,6 +10,7 @@ const email = document.getElementById('iemail');
 const campoUsuarioPF = document.getElementById('iuser');
 const campoSenhaPF = document.getElementById('ipassword');
 const campoConfirmSenhaPF = document.getElementById('ipassword002');
+let forcaDaSenha = 'FRACA';
 
 const campoForcaDaSenha = document.getElementById('container-password-level');
 const barraForcaDaSenha = document.getElementById('rowbar-password-level');
@@ -22,8 +23,6 @@ const formValidatePJ = document.getElementById('form-pessoa-juridica');
 const btnPessoal = document.getElementById('label-perfil-pessoal');
 const btnEmpresarial = document.getElementById('label-perfil-empresarial');
 
-
-let forcaDaSenha = 'FRACA';
 
 //////////////////////////////////////////////////////////////////////
 
