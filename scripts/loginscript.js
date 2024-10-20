@@ -13,7 +13,7 @@ function testeAcesso() {
     formLogin.addEventListener('submit', function(event) {
         if (campoUsuario.value == 'master' && campoSenha.value == 'master') {
             event.preventDefault();
-            window.location.href = '../pages/home.html';
+            window.location.href = '..pages/home.html';
         }
     });
 }

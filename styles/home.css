@@ -83,6 +83,7 @@ main {
     align-items: center;
 
     list-style: none;
+    border-radius: 5px;
     color: rgba(224, 224, 224, 0.644);
     transition: 0.2s;
 }
@@ -96,8 +97,10 @@ main {
 
 .container-submenus li:hover {
     cursor: pointer;
-    background-color: var(--corpadrao004);
-    border-radius: 5px;
+    color: white;
+    background-image: linear-gradient(to right, var(--corpadrao002), var(--corpadrao003));
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.336);
+    box-shadow: 0 0 10px var(--corpadrao003);
     transition: 0.2s;
 }
 
